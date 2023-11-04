@@ -3,7 +3,6 @@ from dao.DAOUsuario import DAOUsuario
 from dao.DAOCurso import DAOCurso
 from dao.DAOEmpleado import DAOEmpleado
 from dao.DAOExtra import DAOExtra
-import mysql.connector
 
 app = Flask(__name__)
 app.secret_key = "Utec123456"
@@ -11,22 +10,6 @@ db = DAOUsuario()
 db1 = DAOCurso()
 db2 = DAOEmpleado()
 db3 = DAOExtra()
-
-def employee_data():
-    config = {
-        'user': 'root',
-        'password': 'root',
-        'host': 'db',
-        'port': '3306',
-        'database': 'usuarios'
-    }
-    connection = mysql.connector.connect(**config)
-    cursor = connection.cursor(dictionary=True)
-    cursor.execute('SELECT * FROM usuario order by nombre')
-    results = cursor.fetchall()
-    cursor.close()
-    connection.close()
-    return results
 
 @app.route('/') # root route
 def inicio():
