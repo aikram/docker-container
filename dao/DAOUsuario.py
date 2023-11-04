@@ -2,7 +2,7 @@ import pymysql
 
 class DAOUsuario:
     def connect(self):
-        return pymysql.connect(host='localhost', password='',user='root',db='db_poo')
+        return pymysql.connect(host='db', password='',user='root',db='db_poo')
 
     def read(self, id):
         con = DAOUsuario.connect(self)
