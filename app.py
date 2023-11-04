@@ -14,6 +14,8 @@ db3 = DAOExtra()
 
 @app.route('/') # root route
 def inicio():
+    # Obtén el valor del encabezado "Host" de la solicitud
+    host = request.headers.get('Host')
     return render_template('index.html')
 
 @app.route('/usuario') # user route
@@ -175,4 +177,4 @@ def deleteempleado():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=3002)
+    app.run(debug=True, host='0.0.0.0', port=3002)
