@@ -14,8 +14,6 @@ db3 = DAOExtra()
 
 @app.route('/') # root route
 def inicio():
-    # Obtén el valor del encabezado "Host" de la solicitud
-    host = request.headers.get('Host')
     return render_template('index.html')
 
 @app.route('/usuario') # user route
